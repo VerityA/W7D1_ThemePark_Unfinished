@@ -2,9 +2,10 @@ package Customers;
 
 import Rides.AcceleratorCoaster;
 import Rides.DiveCoaster;
+import Rides.IRide;
 import Rides.WingCoaster;
 
-public abstract class Customer {
+public abstract class Customer implements IPayForService, Customers.IRide {
 
     private double age;
     private double height;
@@ -44,33 +45,6 @@ public abstract class Customer {
         return this.height >= minHeight;
     }
 
-    public void buyTicketForRide(AcceleratorCoaster acceleratorCoaster) {
-        if (this.isOldEnoughForRide(acceleratorCoaster.getMinAge())) {
-            if (this.isTallEnoughForRide(acceleratorCoaster.getMinHeight())) {
-                if (this.hasSufficientFunds(acceleratorCoaster.getPrice())) {
-                    this.reduceMoneyByPrice(acceleratorCoaster.getPrice());
-                }
-            }
-        }
-    }
 
-    public void buyTicketForRide(DiveCoaster diveCoaster) {
-        if (this.isOldEnoughForRide(diveCoaster.getMinAge())) {
-            if (this.isTallEnoughForRide(diveCoaster.getMinHeight())) {
-                if (this.hasSufficientFunds(diveCoaster.getPrice())) {
-                    this.reduceMoneyByPrice(diveCoaster.getPrice());
-                }
-            }
-        }
-    }
 
-    public void buyTicketForRide(WingCoaster wingCoaster) {
-        if (this.isOldEnoughForRide(wingCoaster.getMinAge())) {
-            if (this.isTallEnoughForRide(wingCoaster.getMinHeight())) {
-                if (this.hasSufficientFunds(wingCoaster.getPrice())) {
-                    this.reduceMoneyByPrice(wingCoaster.getPrice());
-                }
-            }
-        }
-    }
 }

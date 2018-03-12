@@ -67,4 +67,9 @@ public class AdultTest {
         assertEquals(93.5, adult.getMoney(), 0.01);
     }
 
+    @Test
+    public void canRide() {
+        assertEquals("Arrrrghhhhh!", adult.ride());
+    }
+
 }
